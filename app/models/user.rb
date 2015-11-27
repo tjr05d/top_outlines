@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
             presence: true,
             uniqueness: true,
             format: { with: ^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$ }
+
+  def to_s
+    "#{first_name} #{last_name}"
+  end 
 end
