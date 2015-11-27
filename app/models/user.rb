@@ -8,9 +8,10 @@ class User < ActiveRecord::Base
   validates :email,
             presence: true,
             uniqueness: true,
-            format: { with: ^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$ }
+            format: {
+            with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
 
   def to_s
     "#{first_name} #{last_name}"
-  end 
+  end
 end
