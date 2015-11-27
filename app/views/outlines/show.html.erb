@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @outline.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @outline.description %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @outline.course %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @outline.user %>
+</p>
+
+<%= link_to 'Edit', edit_outline_path(@outline) %> |
+<%= link_to 'Back', outlines_path %>

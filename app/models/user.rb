@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :school
+  has_many :outlines 
   has_secure_password
   validates :first_name,
             presence: true
