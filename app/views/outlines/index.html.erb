@@ -2,13 +2,14 @@
 
 <h1>Listing Outlines</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
       <th>Course</th>
       <th>User</th>
+      <th>Download Link</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,14 +21,14 @@
         <td><%= outline.description %></td>
         <td><%= outline.course %></td>
         <td><%= outline.user %></td>
+        <td><%= link_to "#{outline.title}", outline.attachment_url %></td>
         <td><%= link_to 'Show', outline %></td>
         <td><%= link_to 'Edit', edit_outline_path(outline) %></td>
-        <td><%= link_to 'Destroy', outline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= button_to "Delete",  outline, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{outline.attachment}?" %></td>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Outline', new_outline_path %>
+<%= link_to 'New Outline', new_outline_path, class: "btn btn-primary" %>

@@ -27,7 +27,11 @@
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div>
+  <div class="field">
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit%>
   </div>
 <% end %>
