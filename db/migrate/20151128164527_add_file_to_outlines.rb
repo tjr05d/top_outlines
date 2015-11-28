@@ -1,5 +1,5 @@
 class AddFileToOutlines < ActiveRecord::Migration
   def change
-    add_column :outlines, :file, :string
+    add_column :outlines, :attachment, :string
   end
 end

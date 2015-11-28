@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128163719) do
+ActiveRecord::Schema.define(version: 20151128164527) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151128163719) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "file"
+    t.string   "attachment"
   end
 
   add_index "outlines", ["course_id"], name: "index_outlines_on_course_id"
