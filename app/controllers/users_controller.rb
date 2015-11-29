@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = current_user
+    @outline = Outline.new 
   end
 
   # GET /users/new
