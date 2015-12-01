@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20151128164527) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "file"
     t.string   "attachment"
   end
 

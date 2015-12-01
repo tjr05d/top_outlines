@@ -4,5 +4,5 @@ class Outline < ActiveRecord::Base
   mount_uploader :attachment,
                 AttachmentUploader
   validates :title,
-            presence: true
+            presence: true 
 end
