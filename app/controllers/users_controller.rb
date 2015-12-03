@@ -11,12 +11,13 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = current_user
-    @outline = Outline.new 
+    @outline = Outline.new
   end
 
   # GET /users/new
   def new
     @user = User.new
+    @schools = School.all
   end
 
   # GET /users/1/edit
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @schools = School.all
     session[:user_id] = @user.id
     respond_to do |format|
       if @user.save

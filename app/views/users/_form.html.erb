@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :school_id %><br>
-    <%= f.text_field :school_id %>
+    <%= f.collection_select :school_id, @schools, :id, :name, {prompt: "Select your school"}, {class: "form-control"}%>
   </div>
   <div class="actions">
     <%= f.submit %>

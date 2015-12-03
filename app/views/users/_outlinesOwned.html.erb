@@ -4,7 +4,7 @@
     <tr>
       <% @user.outlines.each do |outline| %>
       <td><%= outline.title %></td>
-      <td><%= outline.course %></td>
+      <td><%= outline.course.name %></td>
       <td><%= link_to "#{outline.title}", outline.attachment_url %></td>
       <% end %>
     </tr>

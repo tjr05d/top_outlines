@@ -15,6 +15,8 @@ class OutlinesController < ApplicationController
   # GET /outlines/new
   def new
     @outline = Outline.new
+    @courses = Course.all
+    @user = current_user
   end
 
   # GET /outlines/1/edit
@@ -25,6 +27,8 @@ class OutlinesController < ApplicationController
   # POST /outlines.json
   def create
     @outline = Outline.new(outline_params)
+    @courses = Course.all
+    @user = current_user
 
     respond_to do |format|
       if @outline.save
