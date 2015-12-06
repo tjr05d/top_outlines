@@ -32,7 +32,7 @@ class OutlinesController < ApplicationController
 
     respond_to do |format|
       if @outline.save
-        format.html { redirect_to @outline, notice: 'Outline was successfully created.' }
+        format.html { redirect_to @user, notice: 'Outline was successfully created.' }
         format.json { render :show, status: :created, location: @outline }
       else
         format.html { render :new }
