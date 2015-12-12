@@ -30,6 +30,8 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+gem 'paypal-sdk-rest'
+
 gem 'bootstrap-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -22,6 +22,7 @@
         <td><%= outline.course.name %></td>
         <td><%= outline.user %></td>
         <td><%= link_to "#{outline.title}", outline.attachment_url %></td>
+        <td><%= image_tag outline.attachment_url(:thumb)%> </td>
         <td><%= link_to 'Preview', outline %></td>
     <% end %>
   </tbody>

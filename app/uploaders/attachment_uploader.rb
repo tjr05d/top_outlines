@@ -4,8 +4,18 @@ class AttachmentUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
+  def cover
+    manipulate! do |frame, index|
+      frame if index.zero?
+    end
+end
+version :thumb do
+    process :cover
+    process :resize_to_fill => [150, 210]
+    process :convert => :png
+end
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -47,5 +57,4 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
