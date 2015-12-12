@@ -17,9 +17,9 @@
   <strong>School:</strong>
   <%= @user.school.name %>
 </p>
+<%= link_to 'Edit Profile', edit_user_path(@user) %>
 
 <%= render 'outlinesOwned' %>
 </br>
 <%= link_to "New Outline", new_outline_path, class: "btn btn-default" %>
 </br>
-<%= link_to 'Edit Profile', edit_user_path(@user) %> 
