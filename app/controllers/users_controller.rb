@@ -22,8 +22,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @schools = School.all 
   end
-
   # POST /users
   # POST /users.json
   def create
