@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Outlines</h1>
+<h1>Shop Outlines</h1>
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -9,7 +9,6 @@
       <th>Description</th>
       <th>Course</th>
       <th>User</th>
-      <th>Purchase</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,8 +20,7 @@
         <td><%= outline.description %></td>
         <td><%= outline.course.name %></td>
         <td><%= outline.user %></td>
-        <td><%= link_to "#{outline.title}", outline.attachment_url %></td>
-        <td><%= image_tag outline.attachment_url(:thumb)%> </td>
+        <td><%=outline.attachment_url(:thumb)%></td>
         <td><%= link_to 'Preview', outline %></td>
     <% end %>
   </tbody>

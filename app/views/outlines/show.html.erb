@@ -12,12 +12,17 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @outline.course %>
+  <%= @outline.course.name %>
 </p>
 
 <p>
   <strong>User:</strong>
   <%= @outline.user %>
+</p>
+
+<p>
+  <strong>Download</strong>
+  <%= link_to "#{@outline.title}", @outline.attachment_url %></td>
 </p>
 
 <%= link_to 'Edit', edit_outline_path(@outline) %> |
