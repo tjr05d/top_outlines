@@ -3,3 +3,5 @@
 <%= @outline.description %>
 <%= @outline.user.to_s%>
 <%= @outline.course.name %>
+<%= button_to "Buy",{:controller => :purchases, :action => :create, :user_id => @user.id, :outline_id => @outline.id}, {:method => :post}%>
+<%= render 'form' %>
