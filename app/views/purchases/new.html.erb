@@ -1,7 +1,16 @@
-<h1>Purchases#new</h1>
-<%= @outline.title %>
-<%= @outline.description %>
-<%= @outline.user.to_s%>
-<%= @outline.course.name %>
+<h1><%=@outline.title %></h1>
+
+<table class="table">
+  <th>Outline</th>
+  <th>Course</th>
+  <th>Owner</th>
+  <tb>
+      <tr>
+        <td><%= @outline.description %></td>
+        <td><%= @outline.user.to_s%></td>
+        <td><%= @outline.course.name %></td>
+      </tr>
+  </tb>
+</table>
+
 <%= button_to "Buy",{:controller => :purchases, :action => :create, :user_id => @user.id, :outline_id => @outline.id}, {:method => :post}%>
-<%= render 'form' %>
