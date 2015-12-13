@@ -20,6 +20,9 @@
 <%= link_to 'Edit Profile', edit_user_path(@user) %>
 
 <%= render 'outlinesOwned' %>
+
+<%= @user.purchases.first.outline.title%>
+
 </br>
 <%= link_to "New Outline", new_outline_path, class: "btn btn-default" %>
 </br>
