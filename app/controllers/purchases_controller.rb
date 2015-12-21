@@ -6,14 +6,11 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(purchase_params)
     @user = current_user
-      raise
-      if @purchase.save
-        redirect_to @purchase.paypal_url(@user)
-    else
-      render :new
-      end
+    @client_token = Braintree::ClientToken.generate(
+    :customer_id => @user.id,
+    :verify_card => true
+)
   end
 
   def destroy
