@@ -4,12 +4,12 @@ class Purchase < ActiveRecord::Base
 
   def paypal_url(return_path)
     values = {
-        business: "timothy.reen-facilitator@gmail.com",
+        business: "timothy.reen-facilitator_api1@gmail.com",
         cmd: "_xclick",
         upload: 1,
         return: "#{Rails.application.secrets.app_host}#{return_path}",
         invoice: id,
-        amount: 500,
+        amount: 5,
         item_name: "This",
         item_number: 5,
         quantity: '1'

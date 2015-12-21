@@ -8,6 +8,7 @@ class PurchasesController < ApplicationController
   def create
     @purchase = Purchase.new(purchase_params)
     @user = current_user
+      raise
       if @purchase.save
         redirect_to @purchase.paypal_url(@user)
     else

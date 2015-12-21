@@ -32,6 +32,8 @@ gem 'mini_magick'
 
 gem 'paypal-sdk-rest'
 
+gem 'braintree'
+
 gem 'bootstrap-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -42,6 +44,7 @@ gem 'bootstrap-sass'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
 end
 
 group :development do
