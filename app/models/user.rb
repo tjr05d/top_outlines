@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :school
   has_many :outlines
-  has_many :purchases 
+  has_many :purchases
   has_secure_password
   validates :first_name,
             presence: true
@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
   def to_s
     "#{first_name} #{last_name}"
   end
+
+  def cart_count
+    $redis.scard "cart#{id}"
+  end
+  
 end

@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  get 'carts/show'
+
+  resource :cart, only: [:show] do
+    put 'add/:outline_id', to: 'carts#add', as: :add_to
+    put 'remove/:outline_id', to: 'carts#remove', as: :remove_from
+  end
 
   root 'sessions#new'
-
 
   resources :outlines do
       resources :purchases
     end
-    
+
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'signup', to: 'users#new', as: 'signup'
