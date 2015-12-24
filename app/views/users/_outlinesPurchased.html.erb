@@ -1,16 +1,19 @@
-<h2>Outlines Purchased</h2> 
+<h2>Outlines Purchased</h2>
 <table class="table">
   <th>Outline</th>
   <th>Course</th>
+  <th>Professor</th>
   <th>Owner</th>
-  <th>Document</th>
+  <th>Price</th>
+
   <tb>
       <% @user.purchases.each do |purchase| %>
       <tr>
         <td><%= purchase.outline.title %></td>
         <td><%= purchase.outline.course.name %></td>
-        <td><%= purchase.user.to_s %>
-        <td><%= link_to "#{purchase.outline.title}", purchase.outline.attachment_url %></td>
+        <td><%= purchase.outline.professor %></td>
+        <td><%= purchase.user.to_s %></td> 
+        <td><%= "$#{purchase.outline.price}.00" %></td>
       </tr>
       <% end %>
 
