@@ -5,12 +5,6 @@ class PurchasesController < ApplicationController
     @user = current_user
   end
 
-  def create
-    @user = current_user
-    @client_token = Braintree::ClientToken.generate(
-    :customer_id => @user.id,
-    :verify_card => true
-)
   end
 
   def destroy
