@@ -34,7 +34,7 @@ gem 'paypal-sdk-rest'
 
 gem 'braintree'
 
-gem 'figaro'
+gem 'figaro', '~> 0.7.0'
 
 gem 'redis'
 
