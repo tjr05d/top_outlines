@@ -20,5 +20,28 @@ class User < ActiveRecord::Base
   def cart_count
     $redis.scard "cart#{id}"
   end
-  
+
+  def cart_total_price
+    total_price = 0
+    get_cart_outlines.each { |outline| total_price += outline.price}
+    total_price
+  end
+
+  def get_cart_outlines
+    cart_ids = $redis.smembers "cart#{id}"
+    Outline.find(cart_ids)
+  end
+
+  def purchase_cart_outlines!
+  get_cart_outlines.each { |outline| purchase(outline) }
+  $redis.del "cart#{id}"
+  end
+
+  def purchase(outline)
+    outlines << outline unless purchase?(outline)
+  end
+
+  def purchase?(outline)
+    outlines.include?(outline)
+  end
 end
