@@ -38,6 +38,8 @@ gem 'redis'
 
 gem 'hiredis'
 
+gem 'foundation-rails'
+
 gem 'bootstrap-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'

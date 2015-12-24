@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  resources :outlines 
+  resources :outlines
 
   resources :sessions, only: [:new, :create, :destroy]
 
