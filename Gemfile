@@ -34,6 +34,10 @@ gem 'paypal-sdk-rest'
 
 gem 'braintree'
 
+gem 'redis'
+
+gem 'hiredis'
+
 gem 'bootstrap-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'
