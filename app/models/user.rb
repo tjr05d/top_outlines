@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
   def cart_total_price
     total_price = 0
-    get_cart_outlines.each { |outline| total_price += outline.price}
+    get_cart_outlines.each { |outline| total_price += outline.price.to_i}
     total_price
   end
 
