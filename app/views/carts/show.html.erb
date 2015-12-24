@@ -1,2 +1,25 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<div id="mycart" class="small-10 small-centered medium-8 large-8 column">
+  <div class="p1 glassy-bg mb1 text-center radius-l1 radius-r1">
+    <h4>My Cart</h4>
+    <p class="mb0"> You've selected <span class="cart-count"><%=current_user.cart_count%></span> outlines!</p>
+  </div>
+
+  <% @cart_outlines.each do |outline|%>
+  <div >
+    <div >
+      <%=link_to outline do%>
+        <%=image_tag outline.title , class: "radius-l1"%>
+      <%end%>
+    </div>
+    <div >
+        <p > <%= outline.title %> </p>
+    </div>
+    <div >
+      <%=link_to "" , data: {targetUrl: remove_from_cart_path(outline)} do%>
+        <i class="icon-remove icon-black"></i>
+      <%end%>
+      <h4> <%= "5.00"%></h4>
+    </div>
+  </div>
+  <%end%>
+</div>

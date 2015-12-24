@@ -25,5 +25,14 @@
   <%= link_to "#{@outline.title}", @outline.attachment_url %></td>
 </p>
 
+
+<%if session[:user_id]= current_user.id %>
+  <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@outline), removeUrl: remove_from_cart_path(@outline)} do%>
+    <i class="fi-shopping-cart"></i>
+    <span><%=@cart_action%></span> Cart
+  <%end%>
+<%end%>
+
+
 <%= link_to 'Edit', edit_outline_path(@outline) %> |
 <%= link_to 'Back', outlines_path %>

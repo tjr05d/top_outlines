@@ -21,7 +21,7 @@
         <td><%= outline.course.name %></td>
         <td><%= outline.user %></td>
         <td><%=outline.attachment_url(:thumb)%></td>
-        <td><%= link_to 'Preview', new_outline_purchase_path(outline) %></td>
+        <td><%= link_to 'Preview', outline %></td>
     <% end %>
   </tbody>
 </table>
