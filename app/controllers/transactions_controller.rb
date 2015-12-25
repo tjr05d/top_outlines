@@ -6,12 +6,13 @@ class TransactionsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @result = Braintree::Transaction.sale(
              amount: current_user.cart_total_price,
              payment_method_nonce: params[:payment_method_nonce])
 
    if @result.success?
-     current_user.account_for_outline_purchase
+     current_user.account_for_outline_purchase(@user)
      current_user.purchase_cart_outlines!
      redirect_to outlines_path, notice: "Congraulations! Your transaction has been successfully!"
    else
@@ -23,6 +24,7 @@ class TransactionsController < ApplicationController
   end
 
   private
+
 
   def check_cart!
     if current_user.get_cart_outlines.blank?

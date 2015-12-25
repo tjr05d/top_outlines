@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   def cart_count
     $redis.scard "cart#{id}"
   end
-#calculates the total price of the outlines in the cart 
+#calculates the total price of the outlines in the cart
   def cart_total_price
     total_price = 0
     get_cart_outlines.each { |outline| total_price += outline.price.to_i}
@@ -32,10 +32,13 @@ class User < ActiveRecord::Base
     Outline.find(cart_ids)
   end
 #adds a sale for each outline purchased once the transaction has been processed
-  def account_for_outline_purchase
+#also create the new instance of a purchase in the purchase model
+  def account_for_outline_purchase(user)
     get_cart_outlines.each do |outline|
       outline.sales +=1
       outline.save
+      @purchase = Purchase.new(user_id: user.id, outline_id: outline.id)
+      @purchase.save
     end
   end
 #removes the outlines from the shopping cart once a transactions have been successfully processed
