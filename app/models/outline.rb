@@ -19,7 +19,7 @@ class Outline < ActiveRecord::Base
     end
   end
 
-  def self.price_audit
+  def self.price_calc 
     @schools = School.all
     @courses = Course.all
 #iterate through every school
