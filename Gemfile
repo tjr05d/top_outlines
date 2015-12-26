@@ -30,13 +30,15 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+gem 'paperclip'
+
 gem 'paypal-sdk-rest'
 
 gem 'braintree'
 
 gem 'figaro', '~> 0.7.0'
 
-gem 'gon', '~> 5.1.2' 
+gem 'gon', '~> 5.1.2'
 
 gem 'redis'
 

@@ -2,7 +2,7 @@
 <table class="table">
   <th>Outline</th>
   <th>Course</th>
-  <th>Sales</th> 
+  <th>Sales</th>
   <th>Document</th>
   <tb>
 
@@ -11,7 +11,7 @@
         <td><%= outline.title %></td>
         <td><%= outline.course.name %></td>
         <td><%= outline.sales %><td>
-        <td><%= link_to "#{outline.title}", outline.attachment_url %></td>
+        <td><%= link_to "#{outline.title}", outline.attachment.url %></td>
       </tr>
       <% end %>
 

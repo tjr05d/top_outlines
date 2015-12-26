@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224213417) do
+ActiveRecord::Schema.define(version: 20151226020306) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -28,12 +28,15 @@ ActiveRecord::Schema.define(version: 20151224213417) do
     t.text     "description"
     t.integer  "course_id"
     t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "attachment"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "price"
     t.string   "professor"
-    t.integer  "sales",       default: 0
+    t.integer  "sales",                   default: 0
+    t.string   "attachment_file_name"
+    t.string   "attachment_file_size"
+    t.string   "attachment_content_type"
+    t.string   "attachment_updated_at"
   end
 
   add_index "outlines", ["course_id"], name: "index_outlines_on_course_id"
