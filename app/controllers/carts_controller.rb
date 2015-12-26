@@ -2,6 +2,7 @@ class CartsController < ApplicationController
   def show
     cart_ids = $redis.smembers current_user_cart
     @cart_outlines = Outline.find(cart_ids)
+    @total_price = current_user.cart_total_price
   end
 
   def add

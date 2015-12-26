@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151226020306) do
+ActiveRecord::Schema.define(version: 20151226182656) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151226020306) do
     t.string   "attachment_file_size"
     t.string   "attachment_content_type"
     t.string   "attachment_updated_at"
+    t.integer  "school_id"
   end
 
   add_index "outlines", ["course_id"], name: "index_outlines_on_course_id"

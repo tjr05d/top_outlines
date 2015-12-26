@@ -31,6 +31,9 @@
     <%= f.hidden_field :user_id, :value => @user.id  %>
   </div>
   <div class="field">
+    <%= f.hidden_field :school_id, :value => @user.school.id %>
+  </div>
+  <div class="field">
     <%= f.label :attachment %>
     <%= f.file_field :attachment %>
   </div>

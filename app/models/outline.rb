@@ -6,6 +6,10 @@ class Outline < ActiveRecord::Base
   validates_attachment :attachment, content_type: { content_type: "application/pdf" }
   validates :title,
             presence: true
+  validates :course_id,
+            presence: true
+  validates :school_id,
+            presence: true
 
   def cart_action(current_user_id)
     if $redis.sismember "cart#{current_user_id}", id

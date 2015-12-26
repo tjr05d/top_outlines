@@ -39,4 +39,14 @@ Rails.application.configure do
   Paperclip.options[:command_path] = "/usr/local/bin/convert"
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :authentication => :plain,
+  :address => "smtp.mailgun.org",
+  :port => 587,
+  :domain => "sandbox628d347a890140b2a7e129e935920cb5.mailgun.org",
+  :user_name => "postmaster@sandbox628d347a890140b2a7e129e935920cb5.mailgun.org",
+  :password => 'a463ef9b8216c33c7295cc7930a4a5b2'
+}
 end
