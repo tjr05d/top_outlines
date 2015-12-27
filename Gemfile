@@ -48,6 +48,8 @@ gem 'hiredis'
 
 gem 'whenever'
 
+gem 'will_paginate'
+
 gem 'foundation-rails'
 
 gem 'bootstrap-sass'

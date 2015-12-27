@@ -7,7 +7,7 @@ class OutlinesController < ApplicationController
   def index
     @school_outlines = Outline.where(school_id: current_user.school.id)
     @outlines = Outline.all
-    Outline.price_calc 
+    # Outline.price_calc 
   end
 
   # GET /outlines/1
