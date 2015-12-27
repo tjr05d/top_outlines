@@ -46,6 +46,8 @@ gem 'redis'
 
 gem 'hiredis'
 
+gem 'whenever'
+
 gem 'foundation-rails'
 
 gem 'bootstrap-sass'
