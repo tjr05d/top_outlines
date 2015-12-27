@@ -1,19 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Shop Outlines</h1>
-
-  <%= form_tag outlines_path, :method => 'get', :id => "school_outlines_search" do %>
-  <p>
-
-    <%= collection_select :course, :id, @courses.all, :id, :name,  {prompt: "Select a course"}, {class: "form-control"} %>
-    <%= submit_tag "Search", :name=> nil %>
-  </p>
-  <div id="school_outlines"><%= render 'school_outlines' %></div>
-<% end %>
-
-
 <table class="table table-bordered table-striped">
-  <h3>All Outlines </h3>
+  <h3><%= "#{current_user.school.name} Outlines" %></h3>
   <thead>
     <tr>
       <th>Title</th>
@@ -26,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @outlines.each do |outline| %>
+    <% @school_outlines_search.each do |outline| %>
       <tr>
         <td><%= outline.title %></td>
         <td><%= outline.description %></td>

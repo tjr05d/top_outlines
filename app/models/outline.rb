@@ -19,7 +19,13 @@ class Outline < ActiveRecord::Base
     end
   end
 
-  def self.price_calc 
+  def self.search(search)
+    if search
+      where('course_id LIKE ?', "%#{search}%")
+    end
+  end
+
+  def self.price_calc
     @schools = School.all
     @courses = Course.all
 #iterate through every school

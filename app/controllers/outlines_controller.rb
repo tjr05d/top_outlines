@@ -5,9 +5,15 @@ class OutlinesController < ApplicationController
   # GET /outlines.json
   #The query shows only the outlines for the school that the user attends
   def index
+    @courses = Course.all
     @school_outlines = Outline.where(school_id: current_user.school.id)
+
+    @school_outlines_search = @school_outlines.search(params[:course][:id]) || @school_outlines
     @outlines = Outline.all
-    # Outline.price_calc 
+
+    @outlines_search = @outlines.search(params[:search])
+
+    # Outline.price_calc
   end
 
   # GET /outlines/1

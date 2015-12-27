@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(function() {
+  $("#school_outlines th a, #school_outlines .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#school_outlines_search input").keyup(function() {
+    $.get($("#school_outlines_search").attr("action"), $("#school_outlines_search").serialize(), null, "script");
+    return false;
+  });
+});
