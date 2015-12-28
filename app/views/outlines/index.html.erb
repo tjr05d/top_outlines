@@ -11,30 +11,4 @@
   <div id="school_outlines"><%= render 'school_outlines' %></div>
 <% end %>
 
-
-<table class="table table-bordered table-striped">
-  <h3>All Outlines </h3>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Course</th>
-      <th>User</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @outlines.each do |outline| %>
-      <tr>
-        <td><%= outline.title %></td>
-        <td><%= outline.description %></td>
-        <td><%= outline.course.name %></td>
-        <td><%= outline.user %></td>
-        <td><%= outline.price %></td>
-        <td><%= image_tag outline.attachment.url(:thumb) %></td>
-        <td><%= link_to 'Preview', outline %></td>
-    <% end %>
-  </tbody>
-</table>
+<div id="all_outlines"><%= render 'all_outlines' %></div>

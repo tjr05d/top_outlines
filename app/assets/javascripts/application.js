@@ -14,12 +14,23 @@
 //= require jquery_ujs
 //= require_tree .
 $(function() {
-  $("#school_outlines th a, #school_outlines .pagination a").live("click", function() {
+  $("#school_outlines th a, #school_outlines .pagination a").on("click", function() {
     $.getScript(this.href);
     return false;
   });
   $("#school_outlines_search input").keyup(function() {
     $.get($("#school_outlines_search").attr("action"), $("#school_outlines_search").serialize(), null, "script");
+    return false;
+  });
+});
+
+$(function() {
+  $("#all_outlines th a, #all_outlines .pagination a").on("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#all_outlines_search input").keyup(function() {
+    $.get($("#all_outlines_search").attr("action"), $("#all_outlines_search").serialize(), null, "script");
     return false;
   });
 });

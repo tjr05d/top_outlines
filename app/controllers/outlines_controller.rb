@@ -7,12 +7,9 @@ class OutlinesController < ApplicationController
   def index
     @courses = Course.all
     @school_outlines = Outline.where(school_id: current_user.school.id)
-
     @school_outlines_search = @school_outlines.search(params[:course][:id]) || @school_outlines
     @outlines = Outline.all
-
-    @outlines_search = @outlines.search(params[:search])
-
+    @outlines_search = @outlines.search(params[:course][:id]) || @outlines
     # Outline.price_calc
   end
 
