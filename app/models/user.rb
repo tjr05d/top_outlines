@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   belongs_to :school
   has_many :outlines
-  has_many :purchases
+  has_many :purchases, :class_name => 'Purchase', :foreign_key => 'buyer_id'
+  has_many :sales, :class_name => 'Purchase', :foreign_key => 'seller_id'
   has_secure_password
   validates :first_name,
             presence: true
@@ -37,7 +38,7 @@ class User < ActiveRecord::Base
     get_cart_outlines.each do |outline|
       outline.sales +=1
       outline.save
-      @purchase = Purchase.new(user_id: user.id, outline_id: outline.id)
+      @purchase = Purchase.new(buyer_id: user.id, seller_id: outline.user.id, outline_id: outline.id, price: outline.price)
       @purchase.save
     end
   end

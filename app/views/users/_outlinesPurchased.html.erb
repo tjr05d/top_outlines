@@ -12,8 +12,8 @@
         <td><%= purchase.outline.title %></td>
         <td><%= purchase.outline.course.name %></td>
         <td><%= purchase.outline.professor %></td>
-        <td><%= purchase.user.to_s %></td> 
-        <td><%= "$#{purchase.outline.price}.00" %></td>
+        <td><%= purchase.seller%></td>
+        <td><%= "$#{purchase.price}.00" %></td>
       </tr>
       <% end %>
 
