@@ -1,6 +1,7 @@
 class Outline < ActiveRecord::Base
   has_many :purchases
   has_many :buyers, :class_name => 'User', :through => :purchases
+  belongs_to :professor 
   belongs_to :course
   belongs_to :seller, :class_name => 'User', :foreign_key => 'seller_id'
   has_attached_file :attachment, styles: {thumb: ["300x300#", :png]}

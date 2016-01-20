@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120014013) do
+ActiveRecord::Schema.define(version: 20160120023712) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160120014013) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "price",                   default: "5"
-    t.string   "professor"
+    t.integer  "professor_id"
     t.integer  "sales",                   default: 0
     t.string   "attachment_file_name"
     t.string   "attachment_file_size"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20160120014013) do
 
   add_index "outlines", ["course_id"], name: "index_outlines_on_course_id"
   add_index "outlines", ["seller_id"], name: "index_outlines_on_seller_id"
+
+  create_table "professors", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "professors", ["school_id"], name: "index_professors_on_school_id"
 
   create_table "purchases", force: :cascade do |t|
     t.integer  "buyer_id"
