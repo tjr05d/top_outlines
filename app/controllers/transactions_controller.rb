@@ -12,8 +12,7 @@ class TransactionsController < ApplicationController
              payment_method_nonce: params[:payment_method_nonce])
 
    if @result.success?
-     current_user.account_for_outline_purchase(@user)
-     current_user.purchase_cart_outlines!
+     current_user.purchase_outlines(@user)
      redirect_to outlines_path, notice: "Congraulations! Your transaction has been successfully!"
    else
      flash[:alert] = "Something went wrong while processing your transaction. Please try again!"

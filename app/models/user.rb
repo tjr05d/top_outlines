@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   belongs_to :school
-  has_many :outlines
+  has_many :outlines, :class_name => 'Outline', :foreign_key => 'seller_id'
   has_many :purchases, :class_name => 'Purchase', :foreign_key => 'buyer_id'
-  has_many :sales, :class_name => 'Purchase', :foreign_key => 'seller_id'
+  # has_many :sales, :class_name => 'Purchase', :through => :outlines
   has_secure_password
   validates :first_name,
             presence: true
@@ -34,25 +34,11 @@ class User < ActiveRecord::Base
   end
 #adds a sale for each outline purchased once the transaction has been processed
 #also create the new instance of a purchase in the purchase model
-  def account_for_outline_purchase(user)
+  def purchase_outlines(user)
     get_cart_outlines.each do |outline|
-      outline.sales +=1
-      outline.save
-      @purchase = Purchase.new(buyer_id: user.id, seller_id: outline.user.id, outline_id: outline.id, price: outline.price)
+      @purchase = Purchase.new(buyer_id: user.id, outline_id: outline.id, price: outline.price)
       @purchase.save
+      $redis.del "cart#{id}"
     end
-  end
-#removes the outlines from the shopping cart once a transactions have been successfully processed
-  def purchase_cart_outlines!
-    get_cart_outlines.each { |outline| purchase(outline) }
-    $redis.del "cart#{id}"
-  end
-
-  def purchase(outline)
-    outlines << outline unless purchase?(outline)
-  end
-
-  def purchase?(outline)
-    outlines.include?(outline)
   end
 end

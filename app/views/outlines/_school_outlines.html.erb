@@ -20,7 +20,7 @@
         <div><%= image_tag outline.attachment.url(:thumb) %></div>
       </td>
       <td><%= outline.description %></td>
-      <td>Created by:<%= outline.user %></td>
+      <td>Created by:<%= outline.seller %></td>
       <td>$<%= outline.price %>.00</td>
       <td><%= link_to 'Purchase Outline', outline, class: "btn btn-default"%></td>
     <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229152149) do
+ActiveRecord::Schema.define(version: 20160120014013) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20151229152149) do
     t.string   "title"
     t.text     "description"
     t.integer  "course_id"
-    t.integer  "user_id"
+    t.integer  "seller_id"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "price",                   default: "5"
@@ -41,14 +41,13 @@ ActiveRecord::Schema.define(version: 20151229152149) do
   end
 
   add_index "outlines", ["course_id"], name: "index_outlines_on_course_id"
-  add_index "outlines", ["user_id"], name: "index_outlines_on_user_id"
+  add_index "outlines", ["seller_id"], name: "index_outlines_on_seller_id"
 
   create_table "purchases", force: :cascade do |t|
     t.integer  "buyer_id"
     t.integer  "outline_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "seller_id"
     t.string   "price"
   end
 

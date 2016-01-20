@@ -97,6 +97,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outline_params
-      params.require(:outline).permit(:title, :description, :attachment, :course_id, :user_id, :professor, :school_id)
+      params.require(:outline).permit(:title, :description, :attachment, :course_id, :seller_id, :professor, :school_id)
     end
 end
