@@ -16,7 +16,7 @@
       <td>
         <h4>Title:<%= outline.title %> </h4>
         <h5>Course:<%=outline.course.name %></h5>
-        <h6>Professor:<%= outline.professor %></h6>
+        <h6>Professor:<%= outline.professor.full_name%></h6>
         <div><%= image_tag outline.attachment.url(:thumb) %></div>
       </td>
       <td><%= outline.description %></td>
