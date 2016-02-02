@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  resources :submerchants
+  post 'create_submerchant', to: 'submerchants#create', as: 'create_submerchant'
   resources :transactions, only: [:new, :create]
 
   resource :cart, only: [:show] do

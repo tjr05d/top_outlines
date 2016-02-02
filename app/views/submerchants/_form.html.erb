@@ -1,0 +1,17 @@
+<%= form_tag create_submerchant_path do %>
+    <label for="phone">Phone</label>
+    <%= text_field_tag :phone %></br>
+    <label for="date_of_birth">Date of Birth</label>
+    <%= text_field_tag :date_of_birth %></br>
+    <label for="ssn">SSN</label>
+    <%= text_field_tag :ssn%></br>
+    <label for="street_address">Street Address</label>
+    <%= text_field_tag :street_address %></br>
+    <label for="locality">Locality</label>
+    <%= text_field_tag :locality %></br>
+    <label for="region">Region</label>
+    <%= text_field_tag :region %></br>
+    <label for="postal_code">Postal Code</label>
+    <%= text_field_tag :postal_code %></br>
+    <%= submit_tag "Submit" %>
+<% end %>
