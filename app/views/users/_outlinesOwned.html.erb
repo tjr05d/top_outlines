@@ -1,23 +1,21 @@
-1<h2>My Outlines</h2>
-<div class="row">
-    <% @user.outlines.each do |outline| %>
-
-              <div class="col s12 m4">
-                <div class="card small">
-                  <div class="card-image">
-                    <img src= '<%= image_tag "#{outline.attachment.url(:thumb)}" %>'>
-                    <span class="card-title">outline.title</span>
-                  </div>
-                  <div class="card-content">
-                    <p><%= outline.course.name %></p>
-                    <p><%= outline.purchases.count %></p>
-                  </div>
-                  <div class="card-action">
-                    <%= link_to "#{outline.title}", outline.attachment.url %>
-                  </div>
-                </div>
-              </div>
-
-      <% end %>
-        </div>
+<h4>My Outlines</h4>
 <%= link_to 'New', new_outline_path, class: "btn-floating btn-large waves-effect waves-light red"%>
+<div class="row">
+  <% @user.outlines.each do |outline| %>
+  <div class="col s12 m4">
+    <div class="card small">
+      <div class="card-image">
+        <img src='<%= outline.attachment.url(:thumb)%>' >
+        <span class="card-title #00695c teal-text text-darken-3"> <%=outline.title%> </span>
+      </div>
+      <div class="card-content">
+        <p><b>Course </b><%= outline.course.name %></p>
+        <p><b>Sales </b><%= outline.purchases.count %></p>
+      </div>
+      <div class="card-action">
+        <%= link_to "#{outline.title}", outline.attachment.url %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

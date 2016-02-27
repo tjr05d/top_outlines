@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require_tree .
 $(function() {
+  $(".button-collapse").sideNav();
+  
   $("#school_outlines th a, #school_outlines .pagination a").on("click", function() {
     $.getScript(this.href);
     return false;

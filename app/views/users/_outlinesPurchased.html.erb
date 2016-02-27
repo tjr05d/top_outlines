@@ -1,21 +1,21 @@
-<h2>Outlines Purchased</h2>
-<table class="table">
-  <th>Outline</th>
-  <th>Course</th>
-  <th>Professor</th>
-  <th>Owner</th>
-  <th>Price</th>
+<h4>Outlines Purchased</h4>
+<div class="row">
+  <% @user.purchases.each do |purchase| %>
+  <div class="col s12 m4">
+    <div class="card small">
+      <div class="card-image">
+        <img src='<%= purchase.outline.attachment.url(:thumb)%>' >
+        <span class="card-title #00695c teal-text text-darken-3"> <%=purchase.outline.title%> </span>
+      </div>
+      <div class="card-content">
+        <p><b>Course </b><%= purchase.outline.course.name %></p>
+        <p><b>Sales </b><%= purchase.outline.purchases.count %></p>
+      </div>
+      <div class="card-action">
+        <%= link_to "#{purchase.outline.title}", purchase.outline.attachment.url %>
+      </div>
+    </div>
+  </div>
 
-  <tb>
-      <% @user.purchases.each do |purchase| %>
-      <tr>
-        <td><%= purchase.outline.title %></td>
-        <td><%= purchase.outline.course.name %></td>
-        <td><%= purchase.outline.professor.full_name%></td>
-        <td><%= purchase.outline.seller%></td>
-        <td><%= "$#{purchase.price}.00" %></td>
-      </tr>
-      <% end %>
-
-</tb>
-</table>
+  <% end %>
+</div>

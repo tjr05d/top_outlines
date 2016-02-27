@@ -1,0 +1,27 @@
+<nav>
+    <div class="nav-wrapper #00695c teal darken-3">
+      <a href="#" class="brand-logo">Top Outlines</a>
+       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if current_user %>
+        <li><%= link_to 'Dashboard', current_user %> </li>
+        <li><%= link_to 'Marketplace', outlines_path%> </li>
+        <li><%= link_to 'Sell Outlines', new_submerchant_path %></li>
+        <li><%= link_to "Logged in as #{current_user.to_s}", current_user %></li>
+        <li> <%= link_to "Log out", logout_path %></li>
+
+    <% else %>
+      <li><%= link_to "Sign up", signup_path %></li>
+      <li><%= link_to "Log in", login_path %></li>
+    <% end %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to 'Dashboard', current_user %> </li>
+        <li><%= link_to 'Marketplace', outlines_path%> </li>
+        <li><%= link_to 'Sell Outlines', new_submerchant_path %></li>
+        <li><%= link_to "#{current_user.to_s}", current_user %></li>
+        <li> <%= link_to "Log out", logout_path %></li>
+
+      </ul>
+    </div>
+  </nav>
