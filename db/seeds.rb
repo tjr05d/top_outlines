@@ -5,7 +5,7 @@ course_list = "Accounting and Finance for Lawyers,Admiralty,Administrative Law,A
 Poverty Law,Professional Responsibility,Public Interest Law,Public Health Law,Public International Law,Race and Law,Real Estate Law,Reproductive Rights,Remedies,Refugee and Asylum Law,Gender Law,Same Sex Marriage Law,Sexuality and the Law,Secured Transactions,Space Law,Spanish for Lawyers_I,Spanish for Lawyers_II,Sports Law,Start Up Law,Starting a Firm / Solo Practice,Supreme Court,Tax Law,Trademark Law,Trusts and Estates/Wills,Technology Law,White Collar Crime,Wills,Water Law,Union/Labor Relations Law,Other"
 uni = uni_list.gsub("_"," ").split(",").sort.to_a
 course = course_list.gsub("_"," ").split(",").sort.to_a
-uni.each do |university|
+uni.each do |university, two, three|
   School.create(name: university)
 end
 course.each do |lectures|

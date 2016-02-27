@@ -30,7 +30,7 @@ class SubmerchantsController < ApplicationController
     if @submerchant.success?
       redirect_to outlines_path, notice: "Submerchant Sent!"
     else
-      flash[:alert] = "#{@submerchant.errors}Something went wrong while processing your transaction. Please try again!"
+      flash[:alert] = "#{@submerchant.errors.first.code}Something went wrong while processing your transaction. Please try again!"
       render :new
     end
   end
@@ -90,7 +90,7 @@ class SubmerchantsController < ApplicationController
       },
       :tos_accepted => true,
       :master_merchant_account_id => "topoutlines",
-      :id => "new_seller"
+      :id => "#{@user.email}"
     }
     end
 end

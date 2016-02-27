@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :check_cart!
+  before_action :set_outline, only: [:new, :create]
 
   def new
     gon.client_token = generate_client_token
@@ -8,11 +9,13 @@ class TransactionsController < ApplicationController
   def create
     @user = current_user
     @result = Braintree::Transaction.sale(
-             amount: current_user.cart_total_price,
-             payment_method_nonce: params[:payment_method_nonce])
+            # merchant_account_id: "yzt5cqgpgjgkrvyd",
+            amount: @outline.price,
+            payment_method_nonce: params[:payment_method_nonce])
 
    if @result.success?
-     current_user.purchase_outlines(@user)
+      @purchase = Purchase.new(buyer_id: @user.id, outline_id: @outline.id, price: @outline.price)
+      @purchase.save
      redirect_to outlines_path, notice: "Congraulations! Your transaction has been successfully!"
    else
      flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
@@ -24,6 +27,9 @@ class TransactionsController < ApplicationController
 
   private
 
+  def set_outline
+    @outline = Outline.find(params[:outline_id])
+  end
 
   def check_cart!
     if current_user.get_cart_outlines.blank?

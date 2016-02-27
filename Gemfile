@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -40,7 +40,7 @@ gem 'braintree'
 
 gem 'figaro', '~> 0.7.0'
 
-gem 'gon', '~> 5.1.2'
+gem 'gon', '~> 6.0.1'
 
 gem 'redis'
 

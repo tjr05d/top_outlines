@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :submerchants
   post 'create_submerchant', to: 'submerchants#create', as: 'create_submerchant'
-  resources :transactions, only: [:new, :create]
 
+  # resources :transactions, only: [:new, :create]
   resource :cart, only: [:show] do
     put 'add/:outline_id', to: 'carts#add', as: :add_to
     put 'remove/:outline_id', to: 'carts#remove', as: :remove_from
@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  resources :outlines
+  resources :outlines do
+      resources :transactions, only: [:new, :create]
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 
