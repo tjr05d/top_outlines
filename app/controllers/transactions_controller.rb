@@ -9,9 +9,10 @@ class TransactionsController < ApplicationController
   def create
     @user = current_user
     @result = Braintree::Transaction.sale(
-            # merchant_account_id: "yzt5cqgpgjgkrvyd",
-            amount: @outline.price,
-            payment_method_nonce: params[:payment_method_nonce])
+            :merchant_account_id => "yzt5cqgpgjgkrvyd",
+            :amount => @outline.price,
+            :payment_method_nonce => params[:payment_method_nonce],
+            :service_fee_amount => "1.00")
 
    if @result.success?
       @purchase = Purchase.new(buyer_id: @user.id, outline_id: @outline.id, price: @outline.price)

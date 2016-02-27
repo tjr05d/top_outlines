@@ -1,19 +1,23 @@
-<h2>My Outlines</h2>
-<table class="table">
-  <th>Outline</th>
-  <th>Course</th>
-  <th>Sales</th>
-  <th>Document</th>
-  <tb>
+1<h2>My Outlines</h2>
+<div class="row">
+    <% @user.outlines.each do |outline| %>
 
-      <% @user.outlines.each do |outline| %>
-      <tr>
-        <td><%= outline.title %></td>
-        <td><%= outline.course.name %></td>
-        <td><%= outline.purchases.count %><td>
-        <td><%= link_to "#{outline.title}", outline.attachment.url %></td>
-      </tr>
+              <div class="col s12 m4">
+                <div class="card small">
+                  <div class="card-image">
+                    <img src= '<%= image_tag "#{outline.attachment.url(:thumb)}" %>'>
+                    <span class="card-title">outline.title</span>
+                  </div>
+                  <div class="card-content">
+                    <p><%= outline.course.name %></p>
+                    <p><%= outline.purchases.count %></p>
+                  </div>
+                  <div class="card-action">
+                    <%= link_to "#{outline.title}", outline.attachment.url %>
+                  </div>
+                </div>
+              </div>
+
       <% end %>
-
-</tb>
-</table>
+        </div>
+<%= link_to 'New', new_outline_path, class: "btn-floating btn-large waves-effect waves-light red"%>

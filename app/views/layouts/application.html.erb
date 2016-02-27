@@ -9,6 +9,9 @@
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -30,7 +33,7 @@
           <% if current_user %>
           <li><%= link_to 'Dashboard', current_user %> </li>
           <li><%= link_to 'Marketplace', outlines_path%> </li>
-          <li><%= link_to 'Sell Outlines', new_submerchant_path %></li>  
+          <li><%= link_to 'Sell Outlines', new_submerchant_path %></li>
           <li><%= link_to "Logged in as #{current_user.to_s}", current_user %></li>
           <li>
             <%= link_to cart_path do%>
@@ -57,5 +60,8 @@
 <%= yield %>
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
 </body>
 </html>
