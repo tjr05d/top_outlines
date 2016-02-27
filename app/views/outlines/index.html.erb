@@ -8,5 +8,8 @@
     <%= collection_select :course, :id, @courses.all, :id, :name,  {prompt: "Select a course"}, {class: "form-control"} %>
     <%= submit_tag "Search", :name=> nil %>
   </p>
-  <div id="school_outlines"><%= render 'school_outlines' %></div>
+  
+  <div id="school_outlines">
+    <%= render 'school_outlines' %>
+  </div>
 <% end %>
