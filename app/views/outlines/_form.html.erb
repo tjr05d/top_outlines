@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :course_id %><br>
-    <%= f.collection_select :course_id, @courses, :id, :name, {prompt: "Choose a Course"}, {class: "form-control"} %>
+    <%= f.collection_select :course_id, @courses, :id, :name, {prompt: "Choose a Course"}, {class: "browser-default"} %>
   </div>
   <div class="field">
-    <%= f.label :professor %><br>
-    <%= f.text_field :professor %>
+    <%= f.label :professor_id %><br>
+    <%= f.collection_select :professor_id, @professors, :id, :full_name, {prompt: "Choose a Professor"}, {class: "browser-default"} %>
   </div>
   <div class="field">
     <%= f.hidden_field :seller_id, :value => @user.id  %>
@@ -34,10 +34,11 @@
     <%= f.hidden_field :school_id, :value => @user.school.id %>
   </div>
   <div class="field">
-    <%= f.label :attachment %>
+    <%= f.label :attachment%><br>
     <%= f.file_field :attachment %>
   </div>
+
   <div class="actions">
-    <%= f.submit%>
+    <%= f.submit "Create Outline", class:'btn-large' %>
   </div>
 <% end %>

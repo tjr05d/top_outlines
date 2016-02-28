@@ -1,5 +1,6 @@
-<h3><%= "#{current_user.school.name} Outlines" %></h3>
+<h3><%= "#{current_user.school.name} Outlines" %></h3
 <div class="row">
+  <div class= 'section'>
   <% @school_outlines_search.each do |outline| %>
   <div class="col s12 m6">
     <div class="card small">
@@ -24,6 +25,10 @@
     </ul>
     </div>
     </div>
+    <div class = "divider"></div>
   </div>
+
   <% end %>
+  </div>
+
 </div>

@@ -41,6 +41,7 @@ end
     @outline = Outline.new
     @courses = Course.all
     @user = current_user
+    @professors = Professor.where(school_id: current_user.school_id)
   end
 
   # GET /outlines/1/edit
@@ -97,6 +98,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outline_params
-      params.require(:outline).permit(:title, :description, :attachment, :course_id, :seller_id, :professor, :school_id)
+      params.require(:outline).permit(:title, :description, :attachment, :course_id, :seller_id, :professor_id, :school_id)
     end
 end

@@ -1,5 +1,11 @@
-<h4>My Outlines</h4>
+<div class='row'>
+  <div class= 'col s4 m4'>
+<h3>My Outlines</h3>
+</div>
+<div class = "vertical">
 <%= link_to 'New', new_outline_path, class: "btn-floating btn-large waves-effect waves-light red"%>
+</div>
+</div>
 <div class="row">
   <% @user.outlines.each do |outline| %>
   <div class="col s12 m4">

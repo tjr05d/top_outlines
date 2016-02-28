@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Shop Outlines</h1>
-
-  <%= form_tag outlines_path, :method => 'get', :id => "school_outlines_search" do %>
-  <p>
-
-    <%= collection_select :course, :id, @courses.all, :id, :name,  {prompt: "Select a course"}, {class: "form-control"} %>
-    <%= submit_tag "Search", :name=> nil %>
-  </p>
-  
-  <div id="school_outlines">
-    <%= render 'school_outlines' %>
+<%= form_tag outlines_path, :method => 'get', :id => "school_outlines_search" do %>
+<div class ='row'>
+  <div class = "col m9">
+    <%= collection_select :course, :id, @courses.all, :id, :name,  {prompt: "Select a course"}, {class: "browser-default"} %>
   </div>
+
+  <%= submit_tag "Filter", :name=> nil, class: 'btn btn-default' %>
+  
+<div id="school_outlines">
+  <%= render 'school_outlines' %>
+</div>
 <% end %>
