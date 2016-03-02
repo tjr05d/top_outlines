@@ -25,16 +25,16 @@ class OutlinesController < ApplicationController
   # GET /outlines/1
   # GET /outlines/1.json
   def show
-    @cart_action = @outline.cart_action current_user.try :id
+    # @cart_action = @outline.cart_action current_user.try :id
   end
 
-  def cart_action(current_user_id)
-  if $redis.sismember "cart#{current_user_id}", id
-    "Remove from"
-  else
-    "Add to"
-  end
-end
+#   def cart_action(current_user_id)
+#   if $redis.sismember "cart#{current_user_id}", id
+#     "Remove from"
+#   else
+#     "Add to"
+#   end
+# end
 
   # GET /outlines/new
   def new

@@ -83,14 +83,14 @@ class SubmerchantsController < ApplicationController
         }
       },
       :funding => {
-        :descriptor => "New Seller",
+        :descriptor => "other_seller",
         :destination => Braintree::MerchantAccount::FundingDestination::Bank,
         :account_number => "1123581321",
         :routing_number => "071101307"
       },
       :tos_accepted => true,
       :master_merchant_account_id => "topoutlines",
-      :id => "#{@user.email}"
+      :id => "timreen"
     }
     end
 end

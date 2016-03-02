@@ -18,27 +18,27 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def cart_count
-    $redis.scard "cart#{id}"
-  end
-#calculates the total price of the outlines in the cart
-  def cart_total_price
-    total_price = 0
-    get_cart_outlines.each { |outline| total_price += outline.price.to_i}
-    total_price
-  end
-
-  def get_cart_outlines
-    cart_ids = $redis.smembers "cart#{id}"
-    Outline.find(cart_ids)
-  end
-#adds a sale for each outline purchased once the transaction has been processed
-#also create the new instance of a purchase in the purchase model
-  def purchase_outlines(user)
-    get_cart_outlines.each do |outline|
-      @purchase = Purchase.new(buyer_id: user.id, outline_id: outline.id, price: outline.price)
-      @purchase.save
-      $redis.del "cart#{id}"
-    end
-  end
+#   def cart_count
+#     $redis.scard "cart#{id}"
+#   end
+# #calculates the total price of the outlines in the cart
+#   def cart_total_price
+#     total_price = 0
+#     get_cart_outlines.each { |outline| total_price += outline.price.to_i}
+#     total_price
+#   end
+#
+#   def get_cart_outlines
+#     cart_ids = $redis.smembers "cart#{id}"
+#     Outline.find(cart_ids)
+#   end
+# #adds a sale for each outline purchased once the transaction has been processed
+# #also create the new instance of a purchase in the purchase model
+#   def purchase_outlines(user)
+#     get_cart_outlines.each do |outline|
+#       @purchase = Purchase.new(buyer_id: user.id, outline_id: outline.id, price: outline.price)
+#       @purchase.save
+#       $redis.del "cart#{id}"
+#     end
+#   end
 end
