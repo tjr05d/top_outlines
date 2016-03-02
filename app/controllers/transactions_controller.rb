@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
   def create
     @user = current_user
     @result = Braintree::Transaction.sale(
-            :merchant_account_id => "timreen",
+            :merchant_account_id => @outline.seller.merchant_account,
             :amount => @outline.price,
             :payment_method_nonce => params[:payment_method_nonce],
             :service_fee_amount => "1.00")

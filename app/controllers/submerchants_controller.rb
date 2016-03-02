@@ -90,7 +90,7 @@ class SubmerchantsController < ApplicationController
       },
       :tos_accepted => true,
       :master_merchant_account_id => "topoutlines",
-      :id => "timreen"
+      :id => "#{@user.merchant_account}"
     }
     end
 end
