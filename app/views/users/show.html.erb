@@ -19,6 +19,8 @@
 </p>
 <%= link_to 'Edit Profile', edit_user_path(@user) %>
 
-<%= render 'outlinesOwned' %>
+<% if !current_user.merchant_account.nil? %>
+    <%= render 'outlinesOwned' %>
+<% end %>
 </br>
 <%= render 'outlinesPurchased' %>

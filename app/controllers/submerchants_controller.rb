@@ -14,6 +14,9 @@ class SubmerchantsController < ApplicationController
 
   # GET /submerchants/new
   def new
+    if !current_user.merchant_account.nil?
+      redirect_to edit_submerchant_path(current_user)
+    end
     # @submerchant = Submerchant.new
   end
 
